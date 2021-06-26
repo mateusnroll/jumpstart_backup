@@ -1,49 +1,38 @@
 <template>
-	<div class="new-tab">		
-		<favorite-section
-			v-for="bookmark in bookmarks"
-			:key="bookmark.id"
-			:title="bookmark.title"
-			:children="bookmark.children"/>
+	<div class="new-tab">
+		<div class="logo-container">
+			<img 
+				class="small-logo"
+				src="assets/logo-small.svg"
+				width=32 height=40 />
+		</div>
+
+		<search-box/>
+		<favorite-list/>
 	</div>
 </template>
 
 
 <script>
-import BookmarkService from './bookmarks/BookmarksService.vue'
-import FavoriteSection from './favorites/FavoriteSection.vue'
+import FavoriteList from './favorites/FavoriteList.vue'
+import SearchBox from './search/SearchBox.vue'
 
 export default {
-	components: { FavoriteSection },
+	components: { FavoriteList, SearchBox },
 	name: 'NewTab',
-	data: () => { 
-		return {
-			bookmarks: []
-		}
-	},
-	created: function() {
-		BookmarkService.all("1").then(b => {
-			console.log(b)
-			this.bookmarks = b
-		})
-	}
+	data: () => { },
+	created: function() {}
 }
 </script>
 
 
 <style scoped>
-h3 {
-	margin: 40px 0 0;
+.new-tab {
+	padding-top: 3rem;
 }
-ul {
-	list-style-type: none;
-	padding: 0;
-}
-li {
-	display: inline-block;
-	margin: 0 10px;
-}
-a {
-	color: #42b983;
+
+.logo-container {
+	width: 100%;
+	text-align: center;
 }
 </style>

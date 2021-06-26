@@ -1,6 +1,6 @@
 <template>
 	<div class="fav-section">
-		<h2>{{ title }}</h2>
+		<h2 class="section-title">{{ title }}</h2>
 		
 		<div class="fav-list">
 			<favorite-item
@@ -27,8 +27,16 @@ export default {
 
 
 <style scoped>
+.fav-section {
+	margin-top: 5rem;
+}
+
+.section-title {
+	font-size: 2rem;
+	margin: 0 0 .5rem .5rem;
+}
+
 .fav-list {
 	column-count: 2;
 }
-
 </style>

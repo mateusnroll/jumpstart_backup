@@ -16,12 +16,21 @@ export default {
 </script>
 
 <style>
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+body {
+	font-size: 16px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 
+		Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+		"Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
+
+	background-color: #202124;
+	color: #fff;
+}
+
+#app {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
 }
 </style>
