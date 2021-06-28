@@ -11,8 +11,9 @@ https://codepen.io/sosuke/pen/Pjoqqp
 https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
 
 ## To-do list
-- Add the initial style
+- ✔ Add the initial style
 - Add bookmark search
+- Group search results by folder
 - Keyboard navigation
 - Let the user choose the root node
 - Support nested folders

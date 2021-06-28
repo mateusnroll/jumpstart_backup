@@ -1,14 +1,22 @@
 <template>
-	<div class="search-container">
+	<div 
+		class="search-container"
+		@click="focusInput">
 
-		<div class="search-box">
+		<div 
+			class="search-box"
+			:class="{ focused: isFocused }">
 			<img
 				class="icon-search"
 				src="assets/icons/icon-search.svg"/>
 
 			<input 
 				class="search-input"
-				type="text">
+				ref="searchInput"
+				tabindex="1"
+				type="text"
+				@focus="isFocused = true"
+				@blur="isFocused = false">
 		</div>
 		
 	</div>
@@ -16,7 +24,17 @@
 
 <script>
 export default {
-	props: { }
+	data: () => {
+		return {
+			isFocused: false
+		}
+	},
+
+	methods: {
+		focusInput() {
+			this.$refs.searchInput.focus()
+		}
+	}
 }
 </script>
 
@@ -37,11 +55,15 @@ export default {
 	max-width: 30rem;
 	padding: 1rem;
 
+	cursor: text;
 	background-color: #262729;
-
 	border-radius: 8px;
+	border: 1px solid #262729;
 
 	animation: 10s rotate linear infinite;
+}
+.search-box.focused {
+	border-color: white;
 }
 
 .icon-search {
@@ -55,7 +77,8 @@ export default {
 .search-input {
 	flex-grow: 1;
 
-	/* background-color: transparent; */
+	background-color: transparent;
+	color: #fff;
 	border: none;
 	outline: none;
 }

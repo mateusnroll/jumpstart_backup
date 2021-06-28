@@ -16,6 +16,13 @@ export default {
 </script>
 
 <style>
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 
