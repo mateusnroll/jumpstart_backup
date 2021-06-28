@@ -12,9 +12,9 @@ https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-e
 
 ## To-do list
 - ✔ Add the initial style
-- Add bookmark search
-- Group search results by folder
+- ✔ Add bookmark search
 - Keyboard navigation
+- Group search results by folder
 - Let the user choose the root node
 - Support nested folders
 - Add support for quotes

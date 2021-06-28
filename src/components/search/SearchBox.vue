@@ -15,18 +15,26 @@
 				ref="searchInput"
 				tabindex="1"
 				type="text"
+				v-model="searchQuery"
 				@focus="isFocused = true"
 				@blur="isFocused = false">
 		</div>
-		
+
 	</div>
 </template>
 
 <script>
-export default {
+export default {	
 	data: () => {
 		return {
-			isFocused: false
+			isFocused: false,
+			searchQuery: ''
+		}
+	},
+
+	watch: {
+		searchQuery: function(newVal) {
+			this.$emit('query-update', newVal)
 		}
 	},
 

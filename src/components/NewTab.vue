@@ -7,8 +7,15 @@
 				width=32 height=40 />
 		</div>
 
-		<search-box/>
-		<favorite-list/>
+		<search-box
+			@query-update="queryUpdate"/>
+		
+		<favorite-list
+			v-show="!hasActiveQuery"/>
+
+		<search-list
+			v-show="hasActiveQuery"
+			:query="searchQuery"/>
 	</div>
 </template>
 
@@ -16,10 +23,29 @@
 <script>
 import FavoriteList from './favorites/FavoriteList.vue'
 import SearchBox from './search/SearchBox.vue'
+import SearchList from './search/SearchList.vue'
 
 export default {
-	components: { FavoriteList, SearchBox },
-	name: 'NewTab'
+	components: { FavoriteList, SearchBox, SearchList },
+	name: 'NewTab',
+
+	data: function() {
+		return {
+			searchQuery: ''
+		}
+	},
+
+	methods: {
+		queryUpdate(query) {
+			this.searchQuery = query
+		}
+	},
+
+	computed: {
+		hasActiveQuery: function() {
+			return this.searchQuery.length > 0
+		}
+	}
 }
 </script>
 
