@@ -23,7 +23,6 @@ export default {
 	},
 	created: function() {
 		BookmarkService.all("1").then(b => {
-			console.log(b)
 			this.bookmarks = b
 		})
 	}

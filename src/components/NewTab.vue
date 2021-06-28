@@ -19,9 +19,7 @@ import SearchBox from './search/SearchBox.vue'
 
 export default {
 	components: { FavoriteList, SearchBox },
-	name: 'NewTab',
-	data: () => { },
-	created: function() {}
+	name: 'NewTab'
 }
 </script>
 

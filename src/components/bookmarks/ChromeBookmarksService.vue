@@ -37,7 +37,6 @@ export default {
 	// Remaps the Chrome bookmark node to a Jumpstart one
 	// @arg favorite Object - The favorite object from Chrome
 	remapFavorite(favorite) {
-		console.log(favorite)
 		var remapped = { id: favorite.id, title: favorite.title }
 
 		if (favorite.url) 
