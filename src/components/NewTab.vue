@@ -21,6 +21,7 @@
 
 
 <script>
+import { EventBus } from '../main'
 import FavoriteList from './favorites/FavoriteList.vue'
 import SearchBox from './search/SearchBox.vue'
 import SearchList from './search/SearchList.vue'
@@ -35,15 +36,27 @@ export default {
 		}
 	},
 
-	methods: {
-		queryUpdate(query) {
-			this.searchQuery = query
-		}
-	},
-
 	computed: {
 		hasActiveQuery: function() {
 			return this.searchQuery.length > 0
+		}
+	},
+
+	mounted() {
+		window.addEventListener('keydown', this.keydown)
+	},
+
+	methods: {
+		queryUpdate(query) {
+			this.searchQuery = query
+		},
+
+		keydown(e) {
+			const acceptedValues = ['ArrowUp', 'ArrowDown', 'ArrowRight', 'ArrowLeft']
+			if (!acceptedValues.includes(e.key)) return
+
+			e.preventDefault()
+			EventBus.$emit('arrow-navigation', e.key)
 		}
 	}
 }
