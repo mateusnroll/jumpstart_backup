@@ -80,13 +80,13 @@ export default {
 		},
 
 		enrichedItem(el, columns=1) {
-			const parent = item.closest('.fav-list')
-			const itemArray = Array.from(parent.children)
-			const index = itemArray.findIndex(e => e == item)
+			const parentEl = el.closest('.fav-list')
+			const itemArray = Array.from(parentEl.children)
+			const index = itemArray.findIndex(e => e == el)
 
 			return {
 				el,
-				parent,
+				parentEl,
 				index,
 				listLength: itemArray.length,
 				column: Math.ceil((index + 1) / columns),
